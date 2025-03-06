@@ -1,4 +1,4 @@
-import streamlit as st
+Openai AI Assitants import streamlit as st
 import os
 from dotenv import load_dotenv
 from llama_index.core import set_global_service_context
@@ -36,11 +36,11 @@ class GroqLLM(CustomLLM):
         """Metadata required by CustomLLM."""
         return {"model_name": "GroqLLM", "temperature": 0.7}
 
-# ✅ Use new `Settings` API instead of `ServiceContext`
-groq_llm = GroqLLM(groq_api_key)
-Settings.llm = groq_llm  # ✅ Correct way to set LLM globally
 
-# ✅ Streamlit UI
+groq_llm = GroqLLM(groq_api_key)
+Settings.llm = groq_llm
+
+
 st.title("Mark")
 st.write("Ask me anything!")
 
@@ -53,3 +53,4 @@ if st.button("Send"):
         st.write(f"**Chatbot:** {response}")
     else:
         st.warning("Please enter a valid question.")
+
